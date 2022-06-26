@@ -1,23 +1,40 @@
 {
-  "name": "comicbookart",
-  "version": "0.0.0",
+  "name": "ComicBookArt",
+  "description": "Comic Book Art Gallery Site for browsing cool graphics.",
+  "version": "1.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "start": "npm run lite",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "lite": "lite-server"
   },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:Trianglium/ComicBookArt.git"
+  },
+  "author": "Jordan Brocker Rudow",
+  "license": "MIT",
+  "homepage": "https://github.com/Trianglium/ComicBookArt",
   "private": true,
   "dependencies": {
     "@angular/animations": "~13.3.0",
+    "@angular/cdk": "^14.0.3",
     "@angular/common": "~13.3.0",
     "@angular/compiler": "~13.3.0",
     "@angular/core": "~13.3.0",
     "@angular/forms": "~13.3.0",
+    "@angular/localize": "~13.3.0",
     "@angular/platform-browser": "~13.3.0",
     "@angular/platform-browser-dynamic": "~13.3.0",
     "@angular/router": "~13.3.0",
+    "@ng-bootstrap/ng-bootstrap": "^12.1.2",
+    "@popperjs/core": "^2.10.2",
+    "bootstrap": "^5.1.3",
+    "hammerjs": "^2.0.8",
+    "masonry-layout": "^4.2.2",
+    "ngx-masonry": "^13.0.0",
     "rxjs": "~7.5.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.11.4"
@@ -34,6 +51,7 @@
     "karma-coverage": "~2.1.0",
     "karma-jasmine": "~4.0.0",
     "karma-jasmine-html-reporter": "~1.7.0",
+    "lite-server": "^2.6.1",
     "typescript": "~4.6.2"
   }
 }
