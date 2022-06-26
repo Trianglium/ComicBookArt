@@ -1,4 +1,20 @@
-/* You can add global styles to this file, and also import other style files */
+/* Importing Custom Variable, Mixin and Theme. */
+@import './variables.scss';
+@import './mixins.scss';
+@import './theme.scss';
 
 /* Importing Bootstrap SCSS file. */
 @import '~bootstrap/scss/bootstrap';
+
+.heading {
+  @include header-typography;
+}
+h1 {
+  @include header-typography;
+}
+.subheading {
+  @include subheading-typography;
+}
+p {
+  @include paragraph-typography;
+}

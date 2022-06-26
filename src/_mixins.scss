@@ -1,0 +1,13 @@
+@import './variables.scss';
+
+/* Typography */
+
+@mixin header-typography {
+  font-family: $bebas-neue;
+}
+@mixin subheading-typography {
+  font-family: $montserrat;
+}
+@mixin paragraph-typography {
+  font-family: $montserrat;
+}
