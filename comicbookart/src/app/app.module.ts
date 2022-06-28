@@ -12,6 +12,10 @@ import { FooterComponent } from './components/footer/footer.component';
 import { NotfoundComponent } from './pages/notfound/notfound.component';
 import { HomeComponent } from './pages/home/home.component';
 import { GalleryComponent } from './pages/gallery/gallery.component';
+import { CarouselComponent } from './components/carousel/carousel.component';
+import { MasonryComponent } from './components/masonry/masonry.component';
+import { HeaderComponent } from './components/header/header.component';
+import { ComicstripComponent } from './components/comicstrip/comicstrip.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +23,11 @@ import { GalleryComponent } from './pages/gallery/gallery.component';
     FooterComponent,
     NotfoundComponent,
     HomeComponent,
-    GalleryComponent
+    GalleryComponent,
+    CarouselComponent,
+    MasonryComponent,
+    HeaderComponent,
+    ComicstripComponent
   ],
   imports: [
     BrowserModule,
