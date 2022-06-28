@@ -1,0 +1,18 @@
+.footer-container {
+    width: 100%;
+    display: flex;
+
+  }
+
+  .footer-container > div {
+    height: 50px;
+    flex: 1 1 0px;
+  }
+
+  #footer-cells > div {
+    /* Precautionary Width Size restraint
+      All of a's children should remain the same size
+      when populated with content */
+    width: 33.33%; /* Hard coded to support older browsers */
+    width: calc(100% / 3);
+  }
