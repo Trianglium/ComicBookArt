@@ -10,20 +10,60 @@
 @import '~bootstrap/scss/bootstrap';
 
 
-/* Structure */
-body {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    padding: 0;
-    margin: 0;
-}
+/* Structure and Layout */
+
 /* Keep Footer at the bottom of the page */
+* {
+  @include pad-marg-zero;
+}
+
+html,
+body {
+  height: 100%;
+  @include bg-dark;
+}
+
+#wrap {
+  min-height: 100%;
+}
+
+#main {
+  overflow: auto;
+  padding-bottom: 180px;
+  /* must be same height as the footer */
+}
+
 #footer {
-    position: absolute;
-    bottom: 0;
+  position: relative;
+  margin-top: -180px;
+  /* negative value of footer height */
+  height: 180px;
+  clear: both;
+  @include subheading-typography;
+  color: $gray-600;
+  footer {
+    padding-top: 50px;
+    text-align: center;
+    a {
+      text-decoration: none;
+      color: $gray-500;
+    }
+    a:hover {
+      color: $gray-100;
+    }
+  }
+}
+
+
+/* Opera Fix thanks to Maleika (Kohoutec) */
+
+body:before {
+  content: "";
+  height: 100%;
+  float: left;
+  width: 0;
+  margin-top: -32767px;
+  /* thank you Erik J - negate effect of float*/
 }
 
 
