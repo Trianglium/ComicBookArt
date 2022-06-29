@@ -1,4 +1,5 @@
 @import './variables.scss';
+@import './theme.scss';
 
 /* Typography */
 
@@ -7,7 +8,26 @@
 }
 @mixin subheading-typography {
   font-family: $montserrat;
+  font-weight: 600;
 }
 @mixin paragraph-typography {
   font-family: $montserrat;
+}
+
+
+/* Background and Text Color */
+@mixin bg-dark {
+  background: $black;
+  color: $white;
+}
+
+@mixin bg-light {
+  background: $white;
+  color: $black;
+}
+
+/* Spacing */
+@mixin pad-marg-zero {
+  margin: 0;
+  padding: 0;
 }
