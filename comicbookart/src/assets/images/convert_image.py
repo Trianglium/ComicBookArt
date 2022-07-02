@@ -1,68 +1,30 @@
 import os
-import argparse
+import pathlib
 from PIL import Image
 
-cwd = os.get_cwd()
 
-def jpg_to_png(sub_dirs, n=None):
-    for im_file in sub_dirs:
-        im_file = ''
-        im = Image.open(im_file)
-        if n == None:
-            im_name = str(im_file).split('.')[0] + '.png'
-            im.save(os.path.join(im_name)
-        else:
-            im_name = f'{}
+cwd = os.getcwd()
+comic = os.path.join(cwd, 'comics')
 
+def convert_AFP_to_PNG(all_paths):
+    new_names = [(str(im_path).split('.')[0] + '.png') for im_path in all_paths]
+    return new_names
 
-
-convert_img = {
-    "comics": os.path.join(cwd, 'comics'),
-    "site": os.path.join(cwd, 'site'),
-}
-
-parser = argparse.ArgumentParser(description="Convert JPEG Image Files to PNG")
-parser.add_argument("image_directory", type=str)
-parser.add_argument("--rename-numeric", default=False, action="store_true")
-args = parser.parse_args()
-
-if args.rename_numeric:
-    img_dir = jpg_to_png(sub_dirs = os.listdir(convert_img.get(args.image_directory, "")), n=0)
-
-img_dir = jpg_to_png(sub_dirs = os.listdir(convert_img.get(args.image_directory, "")))
-print(fish)
-
-
-
-
-
-def jpg_to_png(im_dir, parent_dir):
-    quantity = len(im_dir)
-    im_dir = [(fname.split('.')[0]+'.png') for fname in im_dir]
-
-    im = Image.open()
-
-
-import os
-
-def absoluteFilePaths(directory):
-    for dirpath,_,filenames in os.walk(directory):
-        for f in filenames:
-            yield os.path.abspath(os.path.join(dirpath, f))
-
-import pathlib
-def glob_absoluteFilePaths(directory):
+def glob_AFP(directory):
     all_paths = []
     for filepath in pathlib.Path(directory).glob('**/*'):
         result = filepath.absolute()
         all_paths.append(result)
-
-    print(all_paths)
     return all_paths
 
+all_paths = glob_AFP(directory=comic)
 
-import os
-
-def absolute_file_paths(directory):
-    path = os.path.abspath(directory)
-    return [entry.path for entry in os.scandir(path) if entry.is_file()]
+def convert_images(all_paths=None, new_names=None, numeric_names=False, comic=comic):
+    counter = 0
+    if numeric_names == True and new_names == None:
+        new_names = [os.path.join(comic, str(n)+'.png') for n in range(len(x)+1)]
+    for im_file in all_paths:
+        im = Image.open(im_file)
+        im.save(new_names[counter])
+        counter = counter + 1
+        print('Success! Finished: ', counter)
