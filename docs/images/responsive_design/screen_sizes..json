@@ -1,0 +1,16 @@
+{
+    "screen_sizes": {
+        "4k": {
+            "width": "2560px"
+        },
+        "laptop": {
+            "width": "1024px"
+        },
+        "tablet": {
+            "width": "768px"
+        },
+        "mobileL": {
+            "width": "425px"
+        },
+    }
+}
