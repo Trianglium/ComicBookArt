@@ -1,5 +1,17 @@
 # Comicbookart
 
+## MongoDB 
+Move to the mongodb folder and then start the MongoDB server by typing the following at the prompt:
+```terminal
+mongod --dbpath=data --bind_ip 127.0.0.1
+```
+Open another command window and then type the following at the command prompt to start the mongo REPL shell:
+```terminal
+db
+use comicGallery
+```
+
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.3.0.
 
 ## Development server
