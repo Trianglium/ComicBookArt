@@ -1,4 +1,4 @@
-import { Image } from '../models/image.model';
+import { Image } from './image';
 
 export const IMAGES: Image[] = [
   {image_path: 'comics/0.png'},
