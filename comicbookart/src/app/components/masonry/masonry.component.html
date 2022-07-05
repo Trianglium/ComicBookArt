@@ -1,6 +1,5 @@
-<p>masonry works!</p>
 <div class="masonry">
-    <div class="masonry-col">
-        <img src=""/>
+    <div class="masonry-col" *ngFor="let image of images">
+        <img src={{image.image_path}} alt={{image.image_path}}/>
     </div>
 </div>
