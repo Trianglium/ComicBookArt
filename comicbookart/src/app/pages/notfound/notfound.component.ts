@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Image } from '../../shared/image';
 
 @Component({
   selector: 'app-notfound',
@@ -6,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./notfound.component.scss']
 })
 export class NotfoundComponent implements OnInit {
+  not_found_image = "/assets/images/404/404-oops.svg";
 
   constructor() { }
 
