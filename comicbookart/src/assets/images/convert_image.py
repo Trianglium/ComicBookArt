@@ -2,29 +2,54 @@ import os
 import pathlib
 from PIL import Image
 
+class ConvertImages():
+    def __init__(self, converted, unconverted, cwd=os.getcwd()):
+        self.converted = os.path.join(cwd, converted)
+        self.unconverted = os.path.join(cwd, unconverted)
+        self.cwd = cwd
+    
+    def get_directory_context(self, unconverted='jpegs', converted='comics'):
+        cwd = os.getcwd()
+        comics, jpegs = os.path.join(cwd, converted), os.path.join(cwd, unconverted)
 
-cwd = os.getcwd()
-comic = os.path.join(cwd, 'comics')
+    def get_all_image_paths(self, ext):
+        image_paths = [(os.path.join(self.unconverted, im_path), os.path.join(self.converted, im_path.split('.')[0]+ext)) for im_path in os.listdir(self.unconverted)]
+        return image_paths
 
-def convert_AFP_to_PNG(all_paths):
-    new_names = [(str(im_path).split('.')[0] + '.png') for im_path in all_paths]
-    return new_names
+class JPGtoPNG(ConvertImages):
 
-def glob_AFP(directory):
-    all_paths = []
-    for filepath in pathlib.Path(directory).glob('**/*'):
-        result = filepath.absolute()
-        all_paths.append(result)
-    return all_paths
+    def __init__(self, converted, unconverted, cwd=os.getcwd()):
+        super().__init__(converted, unconverted, cwd=os.getcwd())
 
-all_paths = glob_AFP(directory=comic)
+    def convert_to_png(self):
+        image_paths = self.get_all_image_paths(ext='.png')
+        for image_path in image_paths:
+            im = Image.open(image_path[0])
+            im.save(image_path[1])
 
-def convert_images(all_paths=None, new_names=None, numeric_names=False, comic=comic):
-    counter = 0
-    if numeric_names == True and new_names == None:
-        new_names = [os.path.join(comic, str(n)+'.png') for n in range(len(x)+1)]
-    for im_file in all_paths:
-        im = Image.open(im_file)
-        im.save(new_names[counter])
-        counter = counter + 1
-        print('Success! Finished: ', counter)
+        return "Success! Finished Conversion to PNG"
+
+    def __str__(self):
+        msg = self.convert_to_png()
+        return msg
+
+
+class PNGtoICO(ConvertImages):
+    ICON_SIZES = [(16, 16), (24, 24), (32, 32), (48, 48), (64, 64), (128, 128), (255, 255)]
+    def __init__(self, converted, unconverted, cwd=os.getcwd()):
+        super().__init__(converted, unconverted, cwd=os.getcwd())
+
+    def convert_to_ico(self):
+        image_paths = self.get_all_image_paths(ext='.ico')
+        for image_path in image_paths:
+            im = Image.open(image_path[0])
+            im.save(image_path[1], sizes=self.ICON_SIZES)
+
+        return "Success! Finished Conversion to ICO"
+
+    def __str__(self):
+        msg = self.convert_to_ico()
+        return msg
+
+
+
