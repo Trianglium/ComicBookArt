@@ -7,7 +7,7 @@ import { Image } from '../../shared/image';
   styleUrls: ['./notfound.component.scss']
 })
 export class NotfoundComponent implements OnInit {
-  not_found_image = "/assets/images/404/404-oops.svg";
+  not_found_image = "/assets/images/404/blue-stars-404.svg";
 
   constructor() { }
 
