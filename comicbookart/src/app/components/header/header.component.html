@@ -5,12 +5,12 @@
     <a class="navbar-brand" href="#">
       <img class="logo" src={{logo_svg}} alt="ComicBookArt Logo">
     </a>
-    <ul class="nav justify-content-center">
+    <ul class="nav justify-content-center mt-3 pt-2">
       <li class="nav-item">
-        <a class="nav-link active" aria-current="page" href="#">Home</a>
+        <a class="nav-link active" aria-current="page" [routerLink]="['home']">Home</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Gallery</a>
+        <a class="nav-link" [routerLink]="['gallery']">Gallery</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="#">Categories</a>
