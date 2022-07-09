@@ -16,6 +16,7 @@ import { CarouselComponent } from './components/carousel/carousel.component';
 import { MasonryComponent } from './components/masonry/masonry.component';
 import { HeaderComponent } from './components/header/header.component';
 import { ComicstripComponent } from './components/comicstrip/comicstrip.component';
+import { ComicService } from './services/comic.service';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,7 @@ import { ComicstripComponent } from './components/comicstrip/comicstrip.componen
     NgxMasonryModule,
     NgbModule
   ],
-  providers: [],
+  providers: [ComicService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
